@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { configureStore } from '@reduxjs/toolkit';
+import AppInner from './AppInner';
+import { Provider } from 'react-redux';
+import authReducer from './src/slices/authSlice';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const store = configureStore({
+  reducer: {
+    auth: authReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <AppInner />
+    </Provider>
+  );
+};
+
+export default App;
