@@ -21,7 +21,13 @@ const WelcomePage = () => {
           navigation.navigate('SignUp');
         }}
       />
-      <Button text="로그인" style={{ marginTop: 15 }} />
+      <Button
+        text="로그인"
+        style={{ marginTop: 15 }}
+        onPress={() => {
+          navigation.navigate('SignIn');
+        }}
+      />
     </SafeAreaView>
   );
 };

@@ -21,13 +21,21 @@ const SignUpPage = () => {
           <Text style={styles.title}>SIGN UP</Text>
         </View>
       </View>
-      <Input style={{ marginTop: 80 }} placeholder="이메일" />
-      <Input style={{ marginTop: 12 }} placeholder="비밀번호 (8~16자리)" />
-      <Input style={{ marginTop: 12 }} placeholder="비밀번호 확인" />
+      <Input style={{ marginTop: '25%' }} placeholder="이메일" />
+      <Input
+        style={{ marginTop: 12 }}
+        placeholder="비밀번호 (8~16자리)"
+        secureTextEntry={true}
+      />
+      <Input
+        style={{ marginTop: 12 }}
+        placeholder="비밀번호 확인"
+        secureTextEntry={true}
+      />
       <Button
         text="회원가입"
         style={{ marginTop: 34 }}
-        onPress={() => Alert.alert('회원가입')}
+        onPress={() => Alert.alert('회원가입이 완료되었습니다.')}
       />
     </SafeAreaView>
   );
