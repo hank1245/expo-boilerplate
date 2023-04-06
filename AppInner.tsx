@@ -9,6 +9,9 @@ import MainPage from './src/pages/MainPage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MyPage from './src/pages/MyPage';
 import Schedule from './src/pages/Schedule';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
 export type StackParamList = {
   Welcome: undefined;
@@ -51,19 +54,36 @@ const AppInner = () => {
       ) : (
         <Tab.Navigator>
           <Tab.Screen
-            name="Main"
+            name="메인"
             component={MainPage}
-            options={{ headerShown: false }}
+            options={{
+              headerShown: false,
+              tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
+            }}
           />
           <Tab.Screen
-            name="Schedule"
+            name="스케쥴"
             component={Schedule}
-            options={{ headerShown: false }}
+            options={{
+              headerShown: false,
+              tabBarIcon: () => (
+                <MaterialIcons name="schedule" size={24} color="black" />
+              ),
+            }}
           />
           <Tab.Screen
-            name="MyPage"
+            name="내정보"
             component={MyPage}
-            options={{ headerShown: false }}
+            options={{
+              headerShown: false,
+              tabBarIcon: () => (
+                <Ionicons
+                  name="person-circle-outline"
+                  size={24}
+                  color="black"
+                />
+              ),
+            }}
           />
         </Tab.Navigator>
       )}
