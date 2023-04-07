@@ -8,7 +8,9 @@ import { authState } from '../atoms';
 const MyPage = () => {
   const [auth, setAuth] = useRecoilState(authState);
   return (
-    <SafeAreaView style={{ alignItems: 'center' }}>
+    <SafeAreaView
+      style={{ alignItems: 'center', backgroundColor: 'white', flex: 1 }}
+    >
       <View style={{ width: '90%', marginTop: 40 }}>
         <View
           style={{

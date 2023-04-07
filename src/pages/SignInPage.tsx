@@ -12,7 +12,9 @@ const SignInPage = () => {
   const navigation = useNavigation();
   const [auth, setAuth] = useRecoilState(authState);
   return (
-    <SafeAreaView style={{ alignItems: 'center' }}>
+    <SafeAreaView
+      style={{ alignItems: 'center', backgroundColor: 'white', flex: 1 }}
+    >
       <View style={{ width: 261, marginTop: 40 }}>
         <Pressable
           style={{ position: 'absolute', zIndex: 1 }}

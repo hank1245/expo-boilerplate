@@ -54,25 +54,27 @@ const AppInner = () => {
       ) : (
         <Tab.Navigator>
           <Tab.Screen
-            name="메인"
+            name="Main"
             component={MainPage}
             options={{
               headerShown: false,
               tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
+              tabBarLabel: '메인',
             }}
           />
           <Tab.Screen
-            name="스케쥴"
+            name="Schedule"
             component={Schedule}
             options={{
               headerShown: false,
               tabBarIcon: () => (
                 <MaterialIcons name="schedule" size={24} color="black" />
               ),
+              tabBarLabel: '스케쥴',
             }}
           />
           <Tab.Screen
-            name="내정보"
+            name="MyPage"
             component={MyPage}
             options={{
               headerShown: false,
@@ -83,6 +85,7 @@ const AppInner = () => {
                   color="black"
                 />
               ),
+              tabBarLabel: '내정보',
             }}
           />
         </Tab.Navigator>
