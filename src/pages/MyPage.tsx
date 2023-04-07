@@ -2,13 +2,27 @@ import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Input from '../components/common/Input';
 import Button from '../components/common/Button';
+import { useRecoilState } from 'recoil';
+import { authState } from '../atoms';
 
 const MyPage = () => {
+  const [auth, setAuth] = useRecoilState(authState);
   return (
     <SafeAreaView style={{ alignItems: 'center' }}>
       <View style={{ width: '90%', marginTop: 40 }}>
-        <View style={{ alignItems: 'flex-start' }}>
+        <View
+          style={{
+            alignItems: 'flex-start',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}
+        >
           <Text style={styles.title}>내 정보</Text>
+          <Pressable
+            onPress={() => setAuth({ name: undefined, email: undefined })}
+          >
+            <Text style={{ color: 'gray', fontSize: 20 }}>로그아웃</Text>
+          </Pressable>
         </View>
       </View>
     </SafeAreaView>

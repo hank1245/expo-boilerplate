@@ -4,6 +4,7 @@ import Input from '../components/common/Input';
 import Button from '../components/common/Button';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
+import { FLOORS } from '../constants';
 
 const MainPage = () => {
   const [open, setOpen] = useState(false);
@@ -11,6 +12,7 @@ const MainPage = () => {
   const [items, setItems] = useState([
     { label: '1층', value: '1' },
     { label: '2층', value: '2' },
+    { label: '3층', value: '3' },
   ]);
 
   return (
@@ -37,12 +39,13 @@ const MainPage = () => {
           }}
           dropDownContainerStyle={{
             width: 103,
-            height: 80,
+            height: 120,
             marginTop: 30,
             marginLeft: '50%',
           }}
         />
       </View>
+      <View></View>
     </SafeAreaView>
   );
 };

@@ -6,11 +6,7 @@ import Button from '../components/common/Button';
 import { useNavigation } from '@react-navigation/native';
 import { useRecoilState } from 'recoil';
 import { authState } from '../atoms';
-
-const USER = {
-  email: 'test@gmail.com',
-  name: '행크',
-};
+import { USER } from '../constants';
 
 const SignInPage = () => {
   const navigation = useNavigation();
