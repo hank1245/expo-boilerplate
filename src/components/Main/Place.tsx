@@ -19,7 +19,9 @@ function Place({ item }: Props) {
   };
   const onPressOut = () => {
     setIsPressed(false);
-    navigation.navigate('Selected');
+    navigation.navigate('Selected', {
+      name: item.title,
+    } as any);
   };
   return (
     <View style={{ marginTop: 30 }}>

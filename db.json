@@ -1,4 +1,8 @@
 {
+  "login": {
+    "email": "test@gmail.com",
+    "name": "행크"
+  },
   "floors": [
     {
       "name": "1층",

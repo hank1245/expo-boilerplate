@@ -6,11 +6,19 @@ import Button from '../components/common/Button';
 import { useNavigation } from '@react-navigation/native';
 import { useRecoilState } from 'recoil';
 import { authState } from '../atoms';
-import { USER } from '../constants';
+import { HOST } from '../constants';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignInPage = () => {
   const navigation = useNavigation();
   const [auth, setAuth] = useRecoilState(authState);
+
+  async function onLogin() {
+    const { data } = await axios.get(`${HOST}/login`);
+    setAuth(data);
+  }
+
   return (
     <SafeAreaView
       style={{ alignItems: 'center', backgroundColor: 'white', flex: 1 }}
@@ -32,11 +40,7 @@ const SignInPage = () => {
         placeholder="비밀번호"
         secureTextEntry={true}
       />
-      <Button
-        text="로그인하기"
-        style={{ marginTop: 34 }}
-        onPress={() => setAuth(USER)}
-      />
+      <Button text="로그인하기" style={{ marginTop: 34 }} onPress={onLogin} />
     </SafeAreaView>
   );
 };

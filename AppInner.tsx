@@ -8,7 +8,7 @@ import { authState } from './src/atoms';
 import MainPage from './src/pages/MainPage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MyPage from './src/pages/MyPage';
-import Schedule from './src/pages/Schedule';
+import Schedule from './src/pages/SchedulePage';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
