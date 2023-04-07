@@ -3,8 +3,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useEffect, useState } from 'react';
-import { FLOORS } from '../../constants';
 import Place from '../../components/Main/Place';
+import { HOST } from '../../constants';
+import axios from 'axios';
 
 const SearchPlace = () => {
   const [open, setOpen] = useState(false);
@@ -17,15 +18,19 @@ const SearchPlace = () => {
   const [list, setList] = useState<any>(null);
 
   useEffect(() => {
-    if (value === '1') {
-      setList(FLOORS[0].items);
+    async function getFloors() {
+      const { data } = await axios.get(`${HOST}/floors`);
+      if (value === '1') {
+        setList(data[0].items);
+      }
+      if (value === '2') {
+        setList(data[1].items);
+      }
+      if (value === '3') {
+        setList(data[2].items);
+      }
     }
-    if (value === '2') {
-      setList(FLOORS[1].items);
-    }
-    if (value === '3') {
-      setList(FLOORS[2].items);
-    }
+    getFloors();
   }, [value]);
 
   return (
