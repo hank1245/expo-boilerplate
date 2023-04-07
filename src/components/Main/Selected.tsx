@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 const Selected = ({ route }: any) => {
   const navigation = useNavigation();
   const { name } = route.params;
+  //params로 받아온 정보를 통해서 (원래는 매장id) get요청 보내서 매장 상세 데이터 불러오기
   return (
     <SafeAreaView
       style={{ alignItems: 'center', backgroundColor: 'white', flex: 1 }}
