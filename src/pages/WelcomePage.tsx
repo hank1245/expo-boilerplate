@@ -34,7 +34,7 @@ const WelcomePage = () => {
 
 const styles = StyleSheet.create({
   textContainer: {
-    marginTop: 200,
+    marginTop: '30%',
     alignItems: 'center',
   },
   text: {

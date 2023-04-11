@@ -8,7 +8,6 @@ import { useRecoilState } from 'recoil';
 import { authState } from '../atoms';
 import { HOST } from '../constants';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignInPage = () => {
   const navigation = useNavigation();
