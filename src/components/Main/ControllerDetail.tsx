@@ -1,12 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
 import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Input from '../components/common/Input';
-import Button from '../components/common/Button';
-import { useRecoilState } from 'recoil';
-import { authState } from '../atoms';
 
-const MyPage = () => {
-  const [auth, setAuth] = useRecoilState(authState);
+const ControllerDetail = () => {
+  const navgiation = useNavigation();
   return (
     <SafeAreaView
       style={{ alignItems: 'center', backgroundColor: 'white', flex: 1 }}
@@ -19,10 +16,8 @@ const MyPage = () => {
             justifyContent: 'space-between',
           }}
         >
-          <Text style={styles.title}>내 정보</Text>
-          <Pressable
-            onPress={() => setAuth({ name: undefined, email: undefined })}
-          >
+          <Text style={styles.title}>컨트롤러 1</Text>
+          <Pressable onPress={() => navgiation.goBack()}>
             <Text style={{ color: 'gray', fontSize: 20 }}>로그아웃</Text>
           </Pressable>
         </View>
@@ -38,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyPage;
+export default ControllerDetail;

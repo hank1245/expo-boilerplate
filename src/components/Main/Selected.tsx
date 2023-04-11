@@ -7,12 +7,16 @@ import axios from 'axios';
 import { HOST } from '../../constants';
 import { AntDesign } from '@expo/vector-icons';
 import BackgroundModal from '../common/BackgroundModal';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { MainStackParamList } from '../../pages/MainPage';
+import DeviceItem from './DeviceItem';
 
 const Selected = ({ route }: any) => {
-  const navigation = useNavigation();
   const { name, id } = route.params;
   const [info, setInfo] = useState<any>();
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation =
+    useNavigation<NativeStackNavigationProp<MainStackParamList>>();
 
   useEffect(() => {
     async function getStore() {
@@ -21,6 +25,7 @@ const Selected = ({ route }: any) => {
     }
     getStore();
   }, [id]);
+
   return (
     <SafeAreaView
       style={{ alignItems: 'center', backgroundColor: 'white', flex: 1 }}
@@ -51,16 +56,12 @@ const Selected = ({ route }: any) => {
               <Text style={styles.bigText}>AC 목록</Text>
             </View>
             {info.controllers.map((d: any, idx: number) => (
-              <View style={styles.item} key={idx}>
-                <Text style={styles.bigText}>{d.name}</Text>
-                <Text style={styles.status}>{d.status}</Text>
-                <AntDesign
-                  name="right"
-                  size={20}
-                  color="black"
-                  style={{ position: 'absolute', right: 10, top: 5 }}
-                />
-              </View>
+              <DeviceItem
+                name={d.name}
+                status={d.status}
+                key={idx}
+                type="controller"
+              />
             ))}
           </View>
           <View style={styles.border}>
@@ -68,16 +69,12 @@ const Selected = ({ route }: any) => {
               <Text style={styles.bigText}>센서 목록</Text>
             </View>
             {info.sensors.map((d: any, idx: number) => (
-              <View style={styles.item} key={idx}>
-                <Text style={styles.bigText}>{d.name}</Text>
-                <Text style={styles.status}>{d.status}</Text>
-                <AntDesign
-                  name="right"
-                  size={20}
-                  color="black"
-                  style={{ position: 'absolute', right: 10, top: 5 }}
-                />
-              </View>
+              <DeviceItem
+                name={d.name}
+                status={d.status}
+                key={idx}
+                type="sensor"
+              />
             ))}
           </View>
           <BackgroundModal
@@ -117,8 +114,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   item: {
-    marginTop: 13,
+    paddingVertical: 13,
+    backgroundColor: 'red',
   },
+  itemDark: {},
   status: {
     fontSize: 10,
     color: 'rgba(0, 0, 0, 0.8)',
