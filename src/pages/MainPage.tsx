@@ -3,12 +3,14 @@ import SearchPlace from '../components/Main/SearchPlace';
 import Selected from '../components/Main/Selected';
 import ControllerDetail from '../components/Main/ControllerDetail';
 import SensorDetail from '../components/Main/SensorDetail';
+import Temperature from '../components/Main/Temperature';
 
 export type MainStackParamList = {
   SearchPlace: undefined;
   Selected: undefined;
   ControllerDetail: undefined;
   SensorDetail: undefined;
+  Temperature: undefined;
 };
 
 const Stack = createNativeStackNavigator<MainStackParamList>();
@@ -34,6 +36,11 @@ const MainPage = () => {
       <Stack.Screen
         name="SensorDetail"
         component={SensorDetail}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Temperature"
+        component={Temperature}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

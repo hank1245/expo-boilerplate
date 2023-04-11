@@ -1,12 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Button from '../common/Button';
 import BackgroundModal from '../common/BackgroundModal';
 import { useState } from 'react';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { MainStackParamList } from '../../pages/MainPage';
 
 const ControllerDetail = () => {
-  const navgiation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<MainStackParamList>>();
   const [modalVisible, setModalVisible] = useState(false);
   const [data, setData] = useState<string[]>([]);
 
@@ -14,7 +17,9 @@ const ControllerDetail = () => {
     setData(['냉방', '난방', '송풍']);
     setModalVisible(true);
   };
-  const onPressTemp = () => {};
+  const onPressTemp = () => {
+    navigation.navigate('Temperature');
+  };
   const onPressWind = () => {
     setData(['강', '중', '약']);
     setModalVisible(true);
@@ -56,7 +61,7 @@ const ControllerDetail = () => {
               borderRadius: 5,
             }}
           >
-            <Pressable onPress={() => navgiation.goBack()}>
+            <Pressable>
               <Text style={{ color: 'gray', fontSize: 14 }}>ON</Text>
             </Pressable>
           </View>
@@ -98,7 +103,7 @@ const ControllerDetail = () => {
           </View>
         </Pressable>
         <Button
-          onPress={() => navgiation.goBack()}
+          onPress={() => navigation.goBack()}
           text="완료"
           style={{ width: '100%', position: 'absolute', bottom: 30 }}
         />

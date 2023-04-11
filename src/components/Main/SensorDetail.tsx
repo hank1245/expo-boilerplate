@@ -18,7 +18,7 @@ const SensorDetail = () => {
         >
           <Text style={styles.title}>센서 1</Text>
           <Pressable onPress={() => navgiation.goBack()}>
-            <Text style={{ color: 'gray', fontSize: 20 }}>로그아웃</Text>
+            <Text style={{ color: 'gray', fontSize: 20 }}>완료</Text>
           </Pressable>
         </View>
       </View>
