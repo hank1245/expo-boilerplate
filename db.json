@@ -8,16 +8,19 @@
       "name": "1층",
       "items": [
         {
+          "id": 1,
           "title": "서울숲",
           "temp": 18.3,
           "mode": "스마트"
         },
         {
+          "id": 2,
           "title": "동물의숲",
           "temp": 18.4,
           "mode": "일반"
         },
         {
+          "id": 3,
           "title": "Github",
           "temp": 18.5,
           "mode": "스마트"
@@ -28,16 +31,7 @@
       "name": "2층",
       "items": [
         {
-          "title": "화성",
-          "temp": 18.6,
-          "mode": "스마트"
-        },
-        {
-          "title": "노래방",
-          "temp": 18.7,
-          "mode": "일반"
-        },
-        {
+          "id": 4,
           "title": "동대문",
           "temp": 18.3,
           "mode": "스마트"
@@ -48,19 +42,120 @@
       "name": "3층",
       "items": [
         {
-          "title": "독일",
-          "temp": 18.9,
-          "mode": "스마트"
-        },
-        {
+          "id": 5,
           "title": "캘리포니아",
           "temp": 30.6,
           "mode": "일반"
         },
         {
+          "id": 6,
           "title": "애플",
           "temp": -39.6,
           "mode": "스마트"
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": 1,
+      "title": "서울숲",
+      "mode": "스마트",
+      "controllers": [
+        {
+          "name": "컨트롤러1",
+          "status": "연결끊김"
+        }
+      ],
+      "sensors": [
+        {
+          "name": "센서1",
+          "status": "연결끊김"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "동물의숲",
+      "mode": "일반",
+      "controllers": [
+        {
+          "name": "컨트롤러1",
+          "status": "연결끊김"
+        }
+      ],
+      "sensors": [
+        {
+          "name": "센서1",
+          "status": "연결끊김"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Github",
+      "mode": "스마트",
+      "controllers": [
+        {
+          "name": "컨트롤러1",
+          "status": "연결끊김"
+        }
+      ],
+      "sensors": [
+        {
+          "name": "센서1",
+          "status": "연결끊김"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "동대문",
+      "mode": "스마트",
+      "controllers": [
+        {
+          "name": "컨트롤러1",
+          "status": "연결끊김"
+        }
+      ],
+      "sensors": [
+        {
+          "name": "센서1",
+          "status": "연결끊김"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "캘리포니아",
+      "mode": "스마트",
+      "controllers": [
+        {
+          "name": "컨트롤러1",
+          "status": "연결끊김"
+        }
+      ],
+      "sensors": [
+        {
+          "name": "센서1",
+          "status": "연결끊김"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "애플",
+      "mode": "스마트",
+      "controllers": [
+        {
+          "name": "컨트롤러1",
+          "status": "연결끊김"
+        }
+      ],
+      "sensors": [
+        {
+          "name": "센서1",
+          "status": "연결끊김"
         }
       ]
     }

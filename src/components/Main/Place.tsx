@@ -20,6 +20,7 @@ function Place({ item }: Props) {
   const onPressOut = () => {
     setIsPressed(false);
     navigation.navigate('Selected', {
+      id: item.id,
       name: item.title,
     } as any);
   };
