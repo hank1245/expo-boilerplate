@@ -80,6 +80,7 @@ const Selected = ({ route }: any) => {
           <BackgroundModal
             modalVisible={modalVisible}
             setModalVisible={setModalVisible}
+            data={['스마트', '일반', 'OFF']}
           />
         </>
       )}

@@ -7,9 +7,10 @@ import { HOST } from '../../constants';
 interface Props {
   modalVisible: boolean;
   setModalVisible: (modalVisible: boolean) => void;
+  data: string[];
 }
 
-const BackgroundModal = ({ modalVisible, setModalVisible }: Props) => {
+const BackgroundModal = ({ modalVisible, setModalVisible, data }: Props) => {
   const [checked, setChecked] = useState('first');
   return (
     <View style={styles.centeredView}>
@@ -31,19 +32,19 @@ const BackgroundModal = ({ modalVisible, setModalVisible }: Props) => {
               >
                 <RadioButton.Item
                   value="first"
-                  label="스마트"
+                  label={`${data[0]}`}
                   labelVariant="bodySmall"
                   status={checked === 'first' ? 'checked' : 'unchecked'}
                 />
                 <RadioButton.Item
                   value="second"
-                  label="일반"
+                  label={`${data[1]}`}
                   labelVariant="bodySmall"
                   status={checked === 'second' ? 'checked' : 'unchecked'}
                 />
                 <RadioButton.Item
                   value="third"
-                  label="OFF"
+                  label={`${data[2]}`}
                   status={checked === 'third' ? 'checked' : 'unchecked'}
                   labelVariant="bodySmall"
                 />
