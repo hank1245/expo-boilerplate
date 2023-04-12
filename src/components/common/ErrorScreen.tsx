@@ -4,8 +4,6 @@ import Button from './Button';
 import { useNavigation } from '@react-navigation/native';
 
 function ErrorScreen() {
-  const navigation = useNavigation();
-  const onPress = () => {};
   return (
     <View
       style={{
@@ -33,9 +31,7 @@ function ErrorScreen() {
           marginTop: 200,
           justifyContent: 'center',
         }}
-      >
-        <Button text="메인 페이지로 이동" onPress={onPress} />
-      </View>
+      ></View>
     </View>
   );
 }
