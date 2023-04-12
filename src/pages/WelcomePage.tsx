@@ -8,7 +8,6 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 const WelcomePage = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<StackParamList, 'Welcome'>>();
-
   return (
     <SafeAreaView style={{ alignItems: 'center' }}>
       <View style={styles.textContainer}>
