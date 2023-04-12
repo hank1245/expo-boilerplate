@@ -6,8 +6,8 @@ import Button from '../components/common/Button';
 import { useNavigation } from '@react-navigation/native';
 import { useRecoilState } from 'recoil';
 import { authState } from '../atoms';
-import { HOST } from '../constants';
 import axios from 'axios';
+import { HOST } from '../constants';
 
 const SignInPage = () => {
   const navigation = useNavigation();
