@@ -4,17 +4,15 @@ import {
   Canvas,
   Line,
   Path,
-  runTiming,
   Skia,
   SkPath,
   useComputedValue,
-  useValue,
   vec,
 } from '@shopify/react-native-skia';
 
-import { animatedData, DataPoint, originalData } from '../../constants';
+import { originalData } from '../../constants';
 import { curveBasis, line, scaleLinear, scaleTime } from 'd3';
-import { Easing, View, Pressable, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { GRAPH_HEIGHT, GRAPH_WIDTH } from '../../constants';
 
 interface GraphData {
@@ -22,14 +20,12 @@ interface GraphData {
   max: number;
   curve: SkPath;
 }
+export type DataPoint = {
+  date: string;
+  value: number;
+};
 
 const App = () => {
-  const transition = useValue(1);
-  const state = useValue({
-    current: 0,
-    next: 1,
-  });
-
   const makeGraph = (data: DataPoint[]): GraphData => {
     const max = Math.max(...data.map(val => val.value));
     const min = Math.min(...data.map(val => val.value));
@@ -53,25 +49,14 @@ const App = () => {
     };
   };
 
-  const transitionStart = (end: number) => {
-    state.current = {
-      current: end,
-      next: state.current.current,
-    };
-    transition.current = 0;
-    runTiming(transition, 1, {
-      duration: 750,
-    });
-  };
-
-  const graphData = [makeGraph(originalData), makeGraph(animatedData)];
+  const graphData = makeGraph(originalData);
 
   const path = useComputedValue(() => {
-    const start = graphData[state.current.current].curve;
-    const end = graphData[state.current.next].curve;
-    const result = start.interpolate(end, transition.current);
+    const start = graphData.curve;
+    const end = graphData.curve;
+    const result = start.interpolate(end, 1);
     return result?.toSVGString() ?? '0';
-  }, [state, transition]);
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -105,20 +90,6 @@ const App = () => {
         />
         <Path style="stroke" path={path} strokeWidth={4} color="#6231ff" />
       </Canvas>
-      <View style={styles.buttonContainer}>
-        <Pressable
-          onPress={() => transitionStart(0)}
-          style={styles.buttonStyle}
-        >
-          <Text style={styles.textStyle}>Graph 1</Text>
-        </Pressable>
-        <Pressable
-          onPress={() => transitionStart(1)}
-          style={styles.buttonStyle}
-        >
-          <Text style={styles.textStyle}>Graph 2</Text>
-        </Pressable>
-      </View>
     </View>
   );
 };
