@@ -12,9 +12,10 @@ import {
   vec,
 } from '@shopify/react-native-skia';
 
-import { animatedData, DataPoint, originalData } from './Data';
+import { animatedData, DataPoint, originalData } from '../../constants';
 import { curveBasis, line, scaleLinear, scaleTime } from 'd3';
 import { Easing, View, Pressable, Text, StyleSheet } from 'react-native';
+import { GRAPH_HEIGHT, GRAPH_WIDTH } from '../../constants';
 
 interface GraphData {
   min: number;
@@ -28,9 +29,6 @@ const App = () => {
     current: 0,
     next: 1,
   });
-
-  const GRAPH_HEIGHT = 400;
-  const GRAPH_WIDTH = 360;
 
   const makeGraph = (data: DataPoint[]): GraphData => {
     const max = Math.max(...data.map(val => val.value));
@@ -63,7 +61,6 @@ const App = () => {
     transition.current = 0;
     runTiming(transition, 1, {
       duration: 750,
-      easing: Easing.inOut(Easing.cubic),
     });
   };
 
@@ -82,6 +79,7 @@ const App = () => {
         style={{
           width: GRAPH_WIDTH,
           height: GRAPH_HEIGHT,
+          marginTop: 100,
         }}
       >
         <Line
